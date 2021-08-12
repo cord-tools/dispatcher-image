@@ -1,0 +1,16 @@
+#!/bin/sh
+set -e
+
+# Apache gets grumpy about PID files pre-existing
+rm -f /run/httpd/httpd.pid
+
+watch_config() {
+  if [[ "$AUTO_RELOAD" == "true" ]]; then
+    while inotifywait -e close_write /etc/httpd/conf.d/; do
+      httpd -k graceful
+    done
+  fi
+}
+
+watch_config & exec httpd -DFOREGROUND "$@"
+
