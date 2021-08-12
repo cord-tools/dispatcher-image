@@ -10,7 +10,7 @@ Build the image with
 docker build -t public.ecr.aws/cord-tools/dispatcher:<version-tag> .
 
 # Example
-docker build -t public.ecr.aws/cord-tools/dispatcher:4.3.2 .
+docker build -t public.ecr.aws/cord-tools/dispatcher:4.3.3 .
 ```
 
 ## Running the image
@@ -21,7 +21,7 @@ Run dispatcher with the default configuration using
 docker run -p 8080:80 public.ecr.aws/cord-tools/dispatcher:<version-tag>
 
 # Example
-docker run -p 8080:80 public.ecr.aws/cord-tools/dispatcher:4.3.2
+docker run -p 8080:80 public.ecr.aws/cord-tools/dispatcher:4.3.3
 ```
 
 Once running, visit http://localhost:8080 in a browser.
@@ -32,7 +32,7 @@ Environment variables can be used to configure which publish instance dispatcher
 is using as a renderer.
 
 ```
-docker run -p 8080:80 -e PUBLISH_DOMAIN=domain.tld -e PUBLISH_PORT=5503 public.ecr.aws/cord-tools/dispatcher:4.3.2
+docker run -p 8080:80 -e PUBLISH_DOMAIN=domain.tld -e PUBLISH_PORT=5503 public.ecr.aws/cord-tools/dispatcher:4.3.3
 ```
 
 #### `PUBLISH_DOMAIN`
@@ -54,7 +54,7 @@ Dispatcher can be configured by placing the config files in the correct spots.
 This can be done using a dockerfile like this:
 
 ```
-FROM public.ecr.aws/cord-tools/dispatcher:4.3.2
+FROM public.ecr.aws/cord-tools/dispatcher:4.3.3
 COPY ./dispatcher.conf /etc/httpd/conf.d/
 COPY ./dispatcher.any /etc/httpd/conf.d/
 ```
