@@ -8,7 +8,7 @@ RUN yum -y --setopt=tsflags=nodocs install epel-release; \
 RUN curl -L -o /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.2.2/dumb-init_1.2.2_amd64
 RUN chmod +x /usr/local/bin/dumb-init
 
-ARG DISPATCHER_VERSION=4.3.3
+ARG DISPATCHER_VERSION=4.3.4
 
 ENV HTTPD_PREFIX=/etc/httpd
 ENV PUBLISH_DOMAIN=localhost
